@@ -11,7 +11,7 @@ def load_documents(folder="data"):
     return docs
 
 
-def run_rag_debug(query):
+def run_rag_debug(query: str,chunk_size: int,chunk_overlap: int):
     documents = load_documents()
 
     all_chunks = []
@@ -19,7 +19,7 @@ def run_rag_debug(query):
 
     # Chunking
     for filename, text in documents.items():
-        chunks = chunk_text(text)
+        chunks = chunk_text(text,chunk_size=chunk_size,overlap=chunk_overlap)
         for idx, chunk in enumerate(chunks):
             all_chunks.append(chunk)
             chunk_metadata.append({

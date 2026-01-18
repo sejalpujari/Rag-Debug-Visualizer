@@ -5,11 +5,43 @@ from llm import generate_answer   # ← new import
 
 st.set_page_config(layout="wide")
 st.title("🧠 Explainable RAG System (From Scratch)")
+st.sidebar.header("RAG Parameters")
 
+chunk_size = st.sidebar.slider(
+    "Chunk size (characters)",
+    min_value=50,
+    max_value=800,
+    value=120,
+    step=10,
+    help="Larger = more context per chunk, but fewer total chunks"
+)
+
+chunk_overlap = st.sidebar.slider(
+    "Chunk overlap (characters)",
+    min_value=0,
+    max_value=300,
+    value=30,
+    step=5,
+    help="How much consecutive chunks should overlap"
+)
+
+top_k = st.sidebar.slider(
+    "Top-K chunks for context",
+    min_value=1,
+    max_value=12,
+    value=5,
+    step=1,
+    help="Number of most relevant chunks sent to the LLM"
+)
 query = st.text_input("Ask a question")
 
 if query:
-    data = run_rag_debug(query)
+    with st.spinner("Processing documents..."):
+        data = run_rag_debug(
+            query=query,
+            chunk_size=chunk_size,       # ← from slider
+            chunk_overlap=chunk_overlap  # ← from slider
+        )
     print(data)
 
     # -------------------------------
