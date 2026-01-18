@@ -57,3 +57,21 @@ https://github.com/**yourusername**/explainable-rag-from-scratch
 ├── llm.py                   # Groq client + RAG prompt
 └── README.md
 
+2. Installation
+Bash# Clone the repo
+git clone https://github.com/yourusername/explainable-rag-from-scratch.git
+cd explainable-rag-from-scratch
+
+# Create virtual environment (recommended)
+python -m venv venv
+source venv/bin/activate    # Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Create .env file and add your key
+USE THIS WEBSITE AND CREATE A GROQ API KEY https://groq.com/
+echo "GROQ_API_KEY=gsk_..." > .env
+3. Run the app
+Bashstreamlit run ui.py
+Open http://localhost:8501 in your browser.
