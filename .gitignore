@@ -1,0 +1,28 @@
+.env
+__pycache__# Secrets & keys
+.env
+*.key
+*.pem
+*.secrets*
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Vector DBs & large generated files
+chroma_db/
+*.faiss
+*.ann
+*.bin
+
+# macOS / Windows junk
+.DS_Store
+Thumbs.db

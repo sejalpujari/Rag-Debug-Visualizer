@@ -1,0 +1,8 @@
+sentence-transformers
+numpy
+streamlit
+sentence-transformers
+numpy
+streamlit
+groq
+python-dotenv
